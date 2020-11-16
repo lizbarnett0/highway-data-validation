@@ -20,6 +20,7 @@ const submitButton = document.getElementById('submit-button');
 
 //Document element selectors for Error Information Display
 const errorDisplay = document.getElementById('account-error');
+const errorMessage = document.getElementById('error-message');
 
 //Document element selectors for Account Information Display
 const accountInfoDisplay = document.getElementById('account-info-display');
@@ -35,18 +36,23 @@ const displayPaymentMethod = document.getElementById('display-payment-method');
 //Initial Display when page is loaded
 accountInfoDisplay.style.display = 'none';
 errorDisplay.style.display = 'none';
+errorMessage.style.display = 'none';
+
+//If all fields are not filled in, submit button will be disabled
+//if(userId.value || passwordOne.value )
 
 //Event handler for the Submit Button.  It stores the the Account Information then triggers the validation functions
 submitButton.addEventListener('click', (event) => {
 	event.preventDefault();
 
 	validateUserId(userId);
-	validatePassword(passwordOne, passwordTwo, userId);
+	//validatePassword(passwordOne, passwordTwo, userId);
 	validateRegularText(firstName);
 	validateRegularText(lastName);
 	validateRegularText(city);
-	validateAddress(addressOne);
-	validateAddress(addressTwo);
+	//validateAddress(addressOne);
+	//validateAddress(addressTwo);
+	validateZipCode(zipCode)
 	validateEmail(email);
 	validatePhone(phone);
 	validateLoanAccount(loanAccount);
@@ -54,14 +60,16 @@ submitButton.addEventListener('click', (event) => {
 	validateDropdown(paymentMethod);
 });
 
-//UserID Requirements: 5 to 16 character alphanumeric string that may include _ and – having a length of 3 to 16 characters.
+//UserID Requirements: 5 to 16 character alphanumeric string that may include _ and –
 
 function validateUserId(inputText) {
-	const userIdFormat = /^[a-z0-9_-]{5,16}$/;
+	const userIdFormat = /^[a-zA-Z0-9.\-_]{5,16}$/;
 	if (userIdFormat.test(inputText.value)) {
+		console.log(`${inputText.value} id is VALID`);
 		return true;
 	} else {
 		inputText.style.border = 'thick solid red';
+		console.log(`${inputText.value} id is INVALID`);
 		return false;
 	}
 }
@@ -71,7 +79,7 @@ function validateUserId(inputText) {
 function validatePassword(inputOne, inputTwo, userName) {
 	const passwordFormat = /^(?=.*\d)(?=.*[!#$%&? "])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,20}$/;
 	if (inputOne.value != '' && inputOne.value == inputTwo.value) {
-		if (passwordInputOne.value == userName.value) {
+		if (inputOne.value == userName.value) {
 			inputOne.style.border = 'thick solid red';
 			inputTwo.style.border = 'thick solid red';
 			return false;
@@ -89,9 +97,11 @@ function validatePassword(inputOne, inputTwo, userName) {
 function validateRegularText(inputText) {
 	const textFormat = /^[a-zA-Z ]{2,30}$/;
 	if (textFormat.test(inputText.value)) {
+		console.log(`${inputText.value} regular text is VALID`);
 		return true;
 	} else {
 		inputText.style.border = 'thick solid red';
+		console.log(`${inputText.value} regular text is INVALID`);
 		return false;
 	}
 }
@@ -100,37 +110,41 @@ function validateRegularText(inputText) {
 function validateEmail(inputText) {
 	const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 	if (inputText.value.match(mailFormat)) {
+		console.log(`${inputText.value} email is VALID`);
 		return true;
 	} else {
 		inputText.style.border = 'thick solid red';
+		console.log(`${inputText.value} email is INVALID`);
 		return false;
 	}
 }
 
 //Address Requirements:
-function validateAddress(inputText) {
-	const addressFormat = /^[a-zA-Z0-9\s,'-]*$/;
-	if (inputText == addressOne) {
-		if (inputText.value == '') {
-			inputText.style.border = 'thick solid red';
-			return false;
-		} else(inputText.value.match(addressFormat)) {
-			return true;
-		}
-	} else if (inputText == addressTwo || inputText.value.match(addressFormat)) {
-		return true;
-	} else {
-		inputText.style.border = 'thick solid red';
-		return false;
-	}
-}
+// function validateAddress(inputText) {
+// 	const addressFormat = /^[a-zA-Z0-9\s,'-]*$/;
+// 	if (inputText == addressOne) {
+// 		if (inputText.value == '') {
+// 			inputText.style.border = 'thick solid red';
+// 			return false;
+// 		} else(inputText.value.match(addressFormat)){
+// 			return true;
+// 		}
+// 	} else if (inputText == addressTwo || inputText.value.match(addressFormat)) {
+// 		return true;
+// 	} else {
+// 		inputText.style.border = 'thick solid red';
+// 		return false;
+// 	}
+// }
 
 //Dropdown List Requirements: An option, other than "Select an option...", must be selected
 function validateDropdown(selection) {
 	if (selection.value == 'select') {
 		selection.style.border = 'thick solid red';
+		console.log(` ${selection.value} selection is INVALID`);
 		return false;
 	} else {
+		console.log(` ${selection.value} selection is VALID`);
 		return true;
 	}
 }
@@ -139,8 +153,10 @@ function validateDropdown(selection) {
 function validateZipCode(inputText) {
 	const zipFormat = /^\d{5}(-\d{4})?$/;
 	if (zipFormat.test(inputText.value)) {
+		console.log(`${inputText.value} zipcode is VALID`);
 		return true;
 	} else {
+		console.log(`${inputText.value} zipcode is INVALID`);
 		inputText.style.border = 'thick solid red';
 		return false;
 	}
@@ -151,21 +167,25 @@ function validateZipCode(inputText) {
 function validatePhone(inputText) {
 	const phoneFormat = /^\(?[\d]{3}\)?[\s-]?[\d]{3}[\s-]?[\d]{4}$/;
 	if (phoneFormat.test(inputText.value)) {
+		console.log(`${inputText.value} phone number is VALID`);
 		return true;
 	} else {
 		inputText.style.border = 'thick solid red';
+		console.log(`${inputText.value} phone number is VALID`);
 		return false;
 	}
 }
 
-//Loan Account: for the time being I made it 10 digits and no special characters just as a sample
+//Loan Account Requirements: 10 digits and no special characters (just as a sample for the time being)
 
 function validateLoanAccount(inputText) {
 	const loanAccountFormat = /^\d{10}$/;
 	if (loanAccountFormat.test(inputText.value)) {
+		console.log(`${inputText.value} phone number is VALID`);
 		return true;
 	} else {
 		inputText.style.border = 'thick solid red';
+		console.log(`${inputText.value} phone number is VALID`);
 		return false;
 	}
 }
