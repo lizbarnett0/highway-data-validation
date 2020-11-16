@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Highway Data Validation</title>
+</head>
+<body>
+    <section id="account-info-collect">
+        <form id="account-form">
+            <legend>Account Information:</legend><br>
+            <label for="user-id">User ID:</label><br>
+            <input type="text" id="user-id" required><br>
+            <label for="password-one">Enter a Password:</label><br>
+            <input type="password" id="password-one" required><br>
+            <label for="password-two">Re-enter Password:</label><br>
+            <input type="password" id="password-two" required><br>
+            <label for="first-name">First Name:</label><br>
+            <input type="text" id="first-name" required><br>
+            <label for="last-name">Last Name:</label><br>
+            <input type="text" id="last-name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" required><br>
+            <label for="address-one">Address 1:</label><br>
+            <input type="text" id="address-one" required><br>
+            <label for="address-two">Address 2:</label><br>
+            <input type="text" id="address-two"><br>
+            <label for="city">City:</label><br>
+            <input type="text" id="city" required><br>
+            <label for="state">State:</label><br>
+            <select id="state">
+                <option value=""></option>
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AR">AR</option>
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>
+                <option value="WV">WV</option>
+                <option value="WY">WY</option>
+            </select><br>
+            <label for="zip-code">Zip Code:</label><br>
+            <input type="text" id="zip-code" required><br>
+            <label for="phone">Phone:</label><br>
+            <input type="text" id="phone" required><br>
+            <label for="loan-account">Loan Account:</label><br>
+            <input type="text" id="loan-account" required><br>
+            <label for="payment-method">Payment Method:</label><br>
+            <select>
+                <option value=""></option>
+                <option value="credit-card">Credit Card</option>
+                <option value="check">Check</option>
+                <option value="bank-account">Bank Account</option>
+            </select><br><br>
+            <!-- <input type="text" id="payment-method" required><br><br> -->
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
+    </section>
+    <section id="account-info-display">
+        <div id=display-user-id></div>
+        <div id=display-password></div>
+        <div id=display-name></div>
+        <div id=display-email></div>
+        <div id=display-address></div>
+        <div id=display-phone></div>
+        <div id=display-loan-account></div>
+        <div id=display-payment-method></div>
+    </section>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
