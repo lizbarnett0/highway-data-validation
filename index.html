@@ -9,28 +9,29 @@
 <body>
     <section id="account-info-collect">
         <form id="account-form">
-            <legend>Account Information:</legend><br>
-            <label for="user-id">User ID:</label><br>
+            <legend>Account Information:</legend>
+            <p>*required</p>
+            <label for="user-id">User ID*:</label><br>
             <input type="text" id="user-id" required><br>
-            <label for="password-one">Enter a Password:</label><br>
+            <label for="password-one">Enter a Password*:</label><br>
             <input type="password" id="password-one" required><br>
-            <label for="password-two">Re-enter Password:</label><br>
+            <label for="password-two">Re-enter Password*:</label><br>
             <input type="password" id="password-two" required><br>
-            <label for="first-name">First Name:</label><br>
+            <label for="first-name">First Name*:</label><br>
             <input type="text" id="first-name" required><br>
-            <label for="last-name">Last Name:</label><br>
+            <label for="last-name">Last Name*:</label><br>
             <input type="text" id="last-name" required><br>
-            <label for="email">Email:</label><br>
+            <label for="email">Email*:</label><br>
             <input type="email" id="email" required><br>
-            <label for="address-one">Address 1:</label><br>
+            <label for="address-one">Address 1*:</label><br>
             <input type="text" id="address-one" required><br>
             <label for="address-two">Address 2:</label><br>
             <input type="text" id="address-two"><br>
-            <label for="city">City:</label><br>
+            <label for="city">City*:</label><br>
             <input type="text" id="city" required><br>
-            <label for="state">State:</label><br>
+            <label for="state">State*:</label><br>
             <select id="state">
-                <option value=""></option>
+                <option value="select">Select an option...</option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
                 <option value="AR">AR</option>
@@ -83,22 +84,23 @@
                 <option value="WV">WV</option>
                 <option value="WY">WY</option>
             </select><br>
-            <label for="zip-code">Zip Code:</label><br>
+            <label for="zip-code">Zip Code*:</label><br>
             <input type="text" id="zip-code" required><br>
-            <label for="phone">Phone:</label><br>
+            <label for="phone">Phone*:</label><br>
             <input type="text" id="phone" required><br>
-            <label for="loan-account">Loan Account:</label><br>
+            <label for="loan-account">Loan Account*:</label><br>
             <input type="text" id="loan-account" required><br>
-            <label for="payment-method">Payment Method:</label><br>
-            <select>
-                <option value=""></option>
+            <label for="payment-method">Payment Method*:</label><br>
+            <select id="payment-method">
+                <option value="select">Select an option...</option>
                 <option value="credit-card">Credit Card</option>
                 <option value="check">Check</option>
                 <option value="bank-account">Bank Account</option>
             </select><br><br>
-            <!-- <input type="text" id="payment-method" required><br><br> -->
             <input type="submit" value="Submit" id="submit-button">
         </form>
+    <section id="account-error">
+            <div>Please Fix Highlighted Errors </div>
     </section>
     <section id="account-info-display">
         <div id=display-user-id></div>
